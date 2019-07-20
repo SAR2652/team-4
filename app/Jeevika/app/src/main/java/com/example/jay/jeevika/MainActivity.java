@@ -89,7 +89,8 @@ public class MainActivity extends AppCompatActivity
             startActivity(startTrackActivity);
 
         } else if (id == R.id.buy_items) {
-
+            Intent startBuySeeds=new Intent(MainActivity.this, BuySeeds.class);
+            startActivity(startBuySeeds);
         } else if (id == R.id.sell_items) {
 
         } else if (id == R.id.learn) {

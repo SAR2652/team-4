@@ -33,7 +33,7 @@ public class ActivitySelection extends AppCompatActivity implements AdapterView.
         ArrayAdapter<String> pondAdapter = new ArrayAdapter<String>(ActivitySelection.this, android.R.layout.simple_spinner_dropdown_item, ponds);
         pondSpinner.setAdapter(pondAdapter);
         String[] activities = new String[] {"sow", "harvest"};
-        ArrayAdapter<String> activitiesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ponds);
+        ArrayAdapter<String> activitiesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, activities);
         activity1Spinner.setAdapter(activitiesAdapter);
 
         pondSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -65,7 +65,6 @@ public class ActivitySelection extends AppCompatActivity implements AdapterView.
     }
     //onclick for submit button
     public void submitInputDataButton(View view){
-
         Log.v("submit", "submit sucessful, pond: "+ pondSelected + "activity" + activitySelected);
 
 

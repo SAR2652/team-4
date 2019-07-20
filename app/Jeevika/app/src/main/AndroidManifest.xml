@@ -12,6 +12,8 @@
         <activity android:name=".FormResults"></activity>
         <activity android:name=".TrackActivity" />
         <activity android:name=".ActivitySelection" />
+        <activity android:name=".BuySeeds"></activity>
+        <activity android:name=".SellerList"></activity>
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -22,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
