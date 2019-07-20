@@ -19,6 +19,7 @@ public class BuySeeds extends AppCompatActivity {
         itemsToBuySpinner = (Spinner) findViewById(R.id.itemsToBuySpinner);
         String[] ponds = new String[]{"1", "2", "3", "ksf", "sd" ,"sd", "sd", "sd", "sd", "sd", "sd" ,"sd" ,"ssd" ,"sd" ,"ds" ,"ds" ,"ds", "dds", "" };
         ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(BuySeeds.this, android.R.layout.simple_spinner_dropdown_item, ponds);
+
         itemsToBuySpinner.setAdapter(itemsAdapter);
 
         itemsToBuySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -28,6 +29,9 @@ public class BuySeeds extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
+
+
+
     }
 
     public void itemsToBuySubmitButton(View view){
