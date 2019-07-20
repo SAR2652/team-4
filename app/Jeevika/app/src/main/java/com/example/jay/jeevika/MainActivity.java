@@ -83,7 +83,10 @@ public class MainActivity extends AppCompatActivity
 
             Intent startActivitySelection=new Intent(MainActivity.this, ActivitySelection.class);
             startActivity(startActivitySelection);
-        } else if (id == R.id.track_items) {
+        }
+        else if (id == R.id.track_items) {
+            Intent startTrackActivity= new Intent(MainActivity.this, TrackActivity.class);
+            startActivity(startTrackActivity);
 
         } else if (id == R.id.buy_items) {
 
