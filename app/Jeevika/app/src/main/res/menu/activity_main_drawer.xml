@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/input_activity"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Input activity" />
+        <item
+            android:id="@+id/track_items"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Track" />
+        <item
+            android:id="@+id/buy_items"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Buy" />
+        <item
+            android:id="@+id/sell_items"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Sell" />
+
+        <item
+            android:id="@+id/learn"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Learn" />
+    </group>
+
+</menu>
