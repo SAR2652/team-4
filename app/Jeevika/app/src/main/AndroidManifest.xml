@@ -9,6 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".BuySeeds"></activity>
+        <activity android:name=".SellerList"></activity>
         <activity android:name=".ActivitySelection"></activity>
         <activity
             android:name=".MainActivity"
@@ -20,6 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>
