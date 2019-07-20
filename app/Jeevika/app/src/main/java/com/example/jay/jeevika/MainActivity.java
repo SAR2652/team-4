@@ -87,12 +87,12 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.track_items) {
             Intent startTrackActivity= new Intent(MainActivity.this, TrackActivity.class);
             startActivity(startTrackActivity);
-
         } else if (id == R.id.buy_items) {
             Intent startBuySeeds=new Intent(MainActivity.this, BuySeeds.class);
             startActivity(startBuySeeds);
         } else if (id == R.id.sell_items) {
-
+            Intent startsellFish=new Intent(MainActivity.this, sellFish.class);
+            startActivity(startsellFish);
         } else if (id == R.id.learn) {
 
         }
