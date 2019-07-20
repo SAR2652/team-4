@@ -51,3 +51,9 @@ sceneform.asset('sampledata/fish/model.obj',
         'default',
         'sampledata/fish/model.sfa',
         'src/main/assets/model')
+
+
+sceneform.asset('sampledata/bridge/bridge.obj',
+        'default',
+        'sampledata/bridge/bridge.sfa',
+        'src/main/assets/bridge')

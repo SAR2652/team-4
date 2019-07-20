@@ -9,17 +9,19 @@
             "tagText":"feeding",
             "id":"1",
             "desc":"",
-            "img":"feed"
+            "img":"feed",
+            "size":"2.0"
         },
         {
           "videoUrl":"",
           "audioUrl":"",
           "pdfUrl":"",
-          "arUrl":"model.sfb",
+          "arUrl":"bridge.sfb",
           "tagText":"feeding",
           "id":"2",
           "desc":"",
-          "img":"feed"
+          "img":"feed",
+          "size":"1.0"
         },
         {
           "videoUrl":"",
@@ -29,7 +31,8 @@
           "tagText":"feeding",
           "id":"3",
           "desc":"",
-          "img":"feed"
+          "img":"feed",
+          "size":"2.0"
         },
         {
           "videoUrl":"",
@@ -39,7 +42,8 @@
           "tagText":"feeding",
           "id":"4",
           "desc":"",
-          "img":"feed"
+          "img":"feed",
+          "size":"2.0"
         },
         {
           "videoUrl":"",
@@ -49,7 +53,8 @@
           "tagText":"feeding",
           "id":"5",
           "desc":"",
-          "img":"feed"
+          "img":"feed",
+          "size":"2.0"
         },
         {
           "videoUrl":"",
@@ -59,7 +64,8 @@
           "tagText":"feeding",
           "id":"6",
           "desc":"",
-          "img":"feed"
+          "img":"feed",
+          "size":"2.0"
         },
         {
           "videoUrl":"",
@@ -69,7 +75,8 @@
           "tagText":"feeding",
           "id":"7",
           "desc":"",
-          "img":"feed"
+          "img":"feed",
+          "size":"2.0"
         },
         {
           "videoUrl":"",
@@ -79,7 +86,8 @@
           "tagText":"feeding",
           "id":"8",
           "desc":"",
-          "img":"feed"
+          "img":"feed",
+          "size":"2.0"
         },
         {
           "videoUrl":"",
@@ -89,7 +97,8 @@
           "tagText":"feeding",
           "id":"9",
           "desc":"",
-          "img":"feed"
+          "img":"feed",
+          "size":"2.0"
         }
     ]
 }

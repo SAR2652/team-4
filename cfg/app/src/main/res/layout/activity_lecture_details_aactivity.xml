@@ -31,42 +31,60 @@
         app:layout_constraintTop_toBottomOf="@+id/view"
         android:onClick="btnPlay"/>
 
-    <Button
-        android:id="@+id/playAudio"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:onClick="btnAudio"
-        android:text="Audio"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/play" />
+        app:layout_constraintTop_toBottomOf="@+id/play">
+
+        <Button
+            android:id="@+id/playAudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="btnAudio"
+            android:text="Start Audio" />
+
+        <Button
+            android:id="@+id/stopAudio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Stop Audio"
+            android:onClick="btnAudioStop"/>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/pdfDownload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="btnPdf"
         android:text="Download Pdf"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playAudio" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginBottom="48dp"
         android:onClick="btnAr"
         android:text="ar"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pdfDownload" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

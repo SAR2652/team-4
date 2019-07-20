@@ -2,6 +2,8 @@ package com.example.varun.cfg;
 
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +15,7 @@ import com.google.android.youtube.player.YouTubeInitializationResult;
 import com.google.android.youtube.player.YouTubePlayer;
 import com.google.android.youtube.player.YouTubePlayerView;
 
+import java.io.File;
 import java.io.IOException;
 
 public class LectureDetailsAactivity extends YouTubeBaseActivity {
@@ -21,8 +24,8 @@ public class LectureDetailsAactivity extends YouTubeBaseActivity {
     YouTubePlayerView YtPlayer;
     Button play;
     YouTubePlayer.OnInitializedListener YtListener;
+    private MediaPlayer mediaPlayer;
 
-    MediaPlayer mediaPlayer;
 
     String imageUrl,heading,desc,arUrl,videoUrl,audioUrl,pdfUrl,tagText;
 
@@ -31,6 +34,8 @@ public class LectureDetailsAactivity extends YouTubeBaseActivity {
 
 
         getIntentData();
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_details_aactivity);
@@ -73,24 +78,16 @@ public class LectureDetailsAactivity extends YouTubeBaseActivity {
     }
 
     public void btnAudio(View view) {
-        Log.d("testcfg", "btnAudio: ");
-        mediaPlayer = new MediaPlayer();
-        try {
-            mediaPlayer.setDataSource("http://192.168.43.218/boh.mp3");
-            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mp) {
-                    mp.start();
-                }
-            });
-            mediaPlayer.prepareAsync();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        int resID=getResources().getIdentifier("boh", "raw", getPackageName());
+
+        mediaPlayer=MediaPlayer.create(this,resID);
+        mediaPlayer.start();
+
 
     }
 
     public void btnPdf(View view) {
+        //Boolean result=isDownloadManagerAvailable(getApplicationContext());
     }
 
     public void btnAr(View view) {
@@ -102,4 +99,12 @@ public class LectureDetailsAactivity extends YouTubeBaseActivity {
         this.startActivity(intent);
 
     }
+
+    public void btnAudioStop(View view) {
+        if (mediaPlayer.isPlaying()){
+            mediaPlayer.pause();
+        }
+    }
 }
+
+
