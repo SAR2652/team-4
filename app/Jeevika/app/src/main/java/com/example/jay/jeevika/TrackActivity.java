@@ -21,7 +21,7 @@ public class TrackActivity extends AppCompatActivity {
         setContentView(R.layout.activity_track);
 
         formslistView=(ListView)findViewById(R.id.forms_list);
-        String[] values=new String[]{"Form 1","Form 2","Form 3","Form 4","Form 5","Form 6","Form 7"};
+        String[] values=new String[]{"Sowing","Harvesting","Manuring","Feeding","Grown"};
 
         ArrayAdapter<String>adapter=new ArrayAdapter<String>(this,
                 R.layout.forms_list_items,R.id.forms_list_text_view,values);
