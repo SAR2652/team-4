@@ -70,9 +70,15 @@ def pond_detailed():
         timestamp += 60*60
 
 def farmer_detailed():
-    timestamp = 1527811200
+    for i in range(1001):
+        farmer_data = {
+            "location": random.choice(cities),
+            "farmer_name": random.choice([chr(i) for i in range(ord('A'), ord('Z')+1)]),
+            "knowledge_level": random.choice(["Basic", "Intermediate", "Advanced"]),
+            "farmer_count": 1
+        }
+        es.index(index="fishing-data-general", doc_type="doc", body=farmer_data)
 
-
-#general_view()
-#pond_detailed()
+general_view()
+pond_detailed()
 farmer_detailed()
