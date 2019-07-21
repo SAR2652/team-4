@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity
         * uses clear text traffic in the android manifest file.*/
 
 
-        String url="http://192.168.43.187/jaljeevika/verify.php";
+        String url="http://192.168.43.187/team-4/web/jaljeevika/verify.php";
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
