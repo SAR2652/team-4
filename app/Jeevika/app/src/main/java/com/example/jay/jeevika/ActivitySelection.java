@@ -10,6 +10,15 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 
 public class ActivitySelection extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -33,7 +42,7 @@ public class ActivitySelection extends AppCompatActivity implements AdapterView.
         ArrayAdapter<String> pondAdapter = new ArrayAdapter<String>(ActivitySelection.this, android.R.layout.simple_spinner_dropdown_item, ponds);
         pondSpinner.setAdapter(pondAdapter);
         String[] activities = new String[] {"sow", "harvest"};
-        ArrayAdapter<String> activitiesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, ponds);
+        ArrayAdapter<String> activitiesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, activities);
         activity1Spinner.setAdapter(activitiesAdapter);
 
         pondSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -65,9 +74,70 @@ public class ActivitySelection extends AppCompatActivity implements AdapterView.
     }
     //onclick for submit button
     public void submitInputDataButton(View view){
-
         Log.v("submit", "submit sucessful, pond: "+ pondSelected + "activity" + activitySelected);
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                OutputStream os = null;
+                InputStream is = null;
+                HttpURLConnection conn = null;
+                try {
+                    //constants
+                    URL url = new URL("http://192.168.43.187/team-4/web/jaljeevika/activitylog.php?pond="
+                            +pondSelected+"&activity_selected="+activitySelected);
+//                    URL url = new URL("http://1870.49.5.229/Desktop/hello.php");
+                    JSONObject jsonObject = new JSONObject();
+                    jsonObject.put("pond",pondSelected);
+                    jsonObject.put("activity_selected",activitySelected);
+                    String message = jsonObject.toString();
+                    Log.e("JSON",message);
+
+                    conn = (HttpURLConnection) url.openConnection();
+                    conn.setReadTimeout( 10000 /*milliseconds*/ );
+                    conn.setConnectTimeout( 15000 /* milliseconds */ );
+                    conn.setRequestMethod("GET");
+                    conn.setDoInput(true);
+                    conn.setDoOutput(true);
+//                    conn.setFixedLengthStreamingMode(message.getBytes().length);
+
+                    //make some HTTP header nicety
+                    conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
+                    conn.setRequestProperty("X-Requested-With", "XMLHttpRequest");
+
+                    //open
+                    conn.connect();
+//                    Log.e("CONN","URL: " + conn.getURL().toString());
+                    Log.i("info","hjffdgfgfjgjhf");
+
+                    //setup send
+                    os = new BufferedOutputStream(conn.getOutputStream());
+                    os.write(message.getBytes());
+                    //clean up
+                    os.flush();
+
+                    //do somehting with response
+                    is = conn.getInputStream();
+                    //String contentAsString = readIt(is,len);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                } finally {
+                    //clean up
+                    try {
+                        os.close();
+                        is.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    conn.disconnect();
+                }
+            }
+        }).start();
+
+        Log.e("Success","Sent the json file");
 
     }
 
