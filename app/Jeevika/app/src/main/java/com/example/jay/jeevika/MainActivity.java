@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -14,6 +15,17 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,7 +51,48 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
-    }
+
+        /*This is the code for volley. Remember to give Internet permissions and
+        * uses clear text traffic in the android manifest file.*/
+
+
+        String url="http://192.168.43.187/jaljeevika/verify.php";
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject jsonObject = response.getJSONObject(i);
+                       // Log.e("JSON OBJECT",jsonObject.get("f_name").toString());
+                        String farmer_name=jsonObject.get("f_name").toString();
+                        String farmer_category=jsonObject.get("cid").toString();
+
+                        TextView nameView=(TextView)findViewById(R.id.nav_bar_name);
+                        nameView.setText(farmer_name);
+
+                        TextView roleView=(TextView)findViewById(R.id.nav_bar_role);
+                        roleView.setText(farmer_category);
+//
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+//                        progressDialog.dismiss();
+                    }
+                }
+//                adapter.notifyDataSetChanged();
+//                progressDialog.dismiss();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e("Volley", error.toString());
+//                progressDialog.dismiss();
+            }
+        });
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
+            }
+ /* This is the end of volley code*/
 
     @Override
     public void onBackPressed() {
