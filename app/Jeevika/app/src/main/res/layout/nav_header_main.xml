@@ -25,12 +25,14 @@
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="Name"
+        android:id="@+id/nav_bar_name"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Role"/>
+        android:text="Role"
+        android:id="@+id/nav_bar_role"/>
 
 </LinearLayout>
