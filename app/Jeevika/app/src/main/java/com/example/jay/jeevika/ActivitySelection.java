@@ -84,9 +84,9 @@ public class ActivitySelection extends AppCompatActivity implements AdapterView.
                 HttpURLConnection conn = null;
                 try {
                     //constants
-                   // URL url = new URL("http://192.168.43.187/team-4/web/jaljeevika/activitylog.php");
-                    URL url = new URL("http://10.49.5.229/Desktop/hello.php");
-
+                    URL url = new URL("http://192.168.43.187/team-4/web/jaljeevika/activitylog.php?pond="
+                            +pondSelected+"&activity_selected="+activitySelected);
+//                    URL url = new URL("http://1870.49.5.229/Desktop/hello.php");
                     JSONObject jsonObject = new JSONObject();
                     jsonObject.put("pond",pondSelected);
                     jsonObject.put("activity_selected",activitySelected);
@@ -96,10 +96,10 @@ public class ActivitySelection extends AppCompatActivity implements AdapterView.
                     conn = (HttpURLConnection) url.openConnection();
                     conn.setReadTimeout( 10000 /*milliseconds*/ );
                     conn.setConnectTimeout( 15000 /* milliseconds */ );
-                    conn.setRequestMethod("POST");
+                    conn.setRequestMethod("GET");
                     conn.setDoInput(true);
                     conn.setDoOutput(true);
-                    conn.setFixedLengthStreamingMode(message.getBytes().length);
+//                    conn.setFixedLengthStreamingMode(message.getBytes().length);
 
                     //make some HTTP header nicety
                     conn.setRequestProperty("Content-Type", "application/json;charset=utf-8");
@@ -107,6 +107,8 @@ public class ActivitySelection extends AppCompatActivity implements AdapterView.
 
                     //open
                     conn.connect();
+//                    Log.e("CONN","URL: " + conn.getURL().toString());
+                    Log.i("info","hjffdgfgfjgjhf");
 
                     //setup send
                     os = new BufferedOutputStream(conn.getOutputStream());
