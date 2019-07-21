@@ -17,7 +17,7 @@ public class BuySeeds extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_seeds);
         itemsToBuySpinner = (Spinner) findViewById(R.id.itemsToBuySpinner);
-        String[] ponds = new String[]{"1", "2", "3", "ksf", "sd" ,"sd", "sd", "sd", "sd", "sd", "sd" ,"sd" ,"ssd" ,"sd" ,"ds" ,"ds" ,"ds", "dds", "" };
+        String[] ponds = new String[]{"Seed 1","Net 1","Net 3","Net 4","Seed 5","Feed" };
         ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(BuySeeds.this, android.R.layout.simple_spinner_dropdown_item, ponds);
 
         itemsToBuySpinner.setAdapter(itemsAdapter);

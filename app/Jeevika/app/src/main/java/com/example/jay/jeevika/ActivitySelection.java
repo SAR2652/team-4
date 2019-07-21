@@ -1,5 +1,6 @@
 package com.example.jay.jeevika;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -138,6 +139,9 @@ public class ActivitySelection extends AppCompatActivity implements AdapterView.
         }).start();
 
         Log.e("Success","Sent the json file");
+
+        Intent startFormResults= new Intent(ActivitySelection.this, MainActivity.class);
+        startActivity(startFormResults);
 
     }
 
