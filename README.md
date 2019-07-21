@@ -1,3 +1,10 @@
+<p align="center">
+  <img src="https://www.doc-developpement-durable.org/file/Elevages/aquaculture&peche&pisciculture/oxygenation/images/animation-little-river.gif"/>
+ </p>
+<h1 align="center">Jaljeevika</h1>
+<br>
+
+
 # Code for Good 2019 - Team 4 project
 Our team basically developed an App and a WebApp around the required use case of pisciculture.
 
